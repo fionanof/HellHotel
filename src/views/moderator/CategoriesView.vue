@@ -11,6 +11,7 @@ import CategoryList from "@/components/moderator/categories/CategoryList.vue";
 
 <style scoped>
 .category-list {
-  margin: 0 50vh;
+  margin: 0 10vh;
+  width: 100%;
 }
 </style>

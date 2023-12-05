@@ -2,7 +2,20 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 import CategoriesView from '@/views/moderator/CategoriesView.vue'
 
+const routes = [
+  { path: '/', name: 'HomeView', component: HomeView },
+  { path: '/mod/categories', name: 'CategoriesView', component: CategoriesView }
+]
+
 const router = createRouter({
+  history: createWebHistory(),
+  routes
+
+})
+
+export default router;
+
+/*const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
@@ -18,4 +31,4 @@ const router = createRouter({
   ]
 })
 
-export default router
+export default router*/

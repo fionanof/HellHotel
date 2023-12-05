@@ -3,9 +3,21 @@ import { RouterView } from "vue-router";
 </script>
 
 <template>
-  <RouterView />
-</template>
 
+  <div id="nav"> 
+    <router-link to="/">Home</router-link>
+    <router-link to="/mod/categories">Categories</router-link>
+  </div>
+
+  <div class="container">
+    <router-view>
+
+    </router-view>
+
+  </div>
+  
+</template>
+<!----
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Carrois+Gothic&display=swap");
 
@@ -24,4 +36,6 @@ body {
 .content {
   flex: 1;
 }
-</style>
+</style> 
+-->
+

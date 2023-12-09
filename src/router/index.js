@@ -1,10 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 import CategoriesView from '@/views/moderator/CategoriesView.vue'
+import SpaView from '@/views/SpaView.vue';
 
 const routes = [
   { path: '/', name: 'HomeView', component: HomeView },
-  { path: '/mod/categories', name: 'CategoriesView', component: CategoriesView }
+  { path: '/mod/categories', name: 'CategoriesView', component: CategoriesView },
+  { path: '/spa', name: 'SpaView', component: SpaView }
 ]
 
 const router = createRouter({

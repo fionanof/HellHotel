@@ -7,6 +7,7 @@ import { RouterView } from "vue-router";
   <div id="nav"> 
     <router-link to="/">Home</router-link>
     <router-link to="/mod/categories">Categories</router-link>
+    <router-link to="/spa">Spa</router-link>
   </div>
 
   <div class="container">

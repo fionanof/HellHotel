@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h1>Willkommen im Hotel Inferno</h1>
+    <h1>Verfügbare Zimmer im Lucifer-Stil</h1>
     
-    <div v-for="room in rooms" :key="room.name" class="room-card">
+    <div v-for="room in availableRooms" :key="room.room_number" class="room-card">
       <img :src="room.image" :alt="`${room.name} Zimmer`" class="room-image">
       <h2>{{ room.name }}</h2>
       <p>{{ room.description }}</p>
       <p>Preis pro Nacht: {{ room.price }} EUR</p>
-      <button @click="bookRoom(room)">Mehr Infos</button>
+      <button @click="bookRoom(room)">Jetzt buchen</button>
     </div>
   </div>
 </template>
@@ -22,20 +22,30 @@ export default {
       rooms: [],
     };
   },
+  computed: {
+    availableRooms() {
+      return this.rooms.filter(room => room.status === 'Available');
+    },
+  },
   methods: {
     async fetchRooms() {
       try {
-        const { data, error } = await supabase.from('room_categories').select('*');
+        const { data, error } = await supabase
+          .from('rooms')
+          .select('*')
+          .eq('room_category_id', 1);
 
         if (error) {
           console.error('Error fetching rooms:', error.message);
         } else {
           this.rooms = data.map(room => ({
+            room_number: room.room_number,
             name: room.name,
             description: room.description,
             price: room.price,
+            status: room.status,
             // Hier füge die URL aus dem Supabase-Bucket hinzu
-            image: `https://ttrjitfuxfchsuscdcuc.supabase.co/storage/v1/object/public/room_categories/1.jpg${room.image}`,
+            image: `https://<bucket-name>.storage.<region>.supabase.co/${room.image}`,
           }));
         }
       } catch (error) {

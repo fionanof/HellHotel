@@ -15,6 +15,9 @@ const props = defineProps(["imageUrl"]);
       <p>Belegung: <slot name="occupancy">0</slot> Personen</p>
       <p><slot name="description">Beschreibung</slot></p>
     </div>
+    <div class="buttons-container">
+      <router-link to="/addspawater">read more</router-link>
+    </div>  
   </div>
 </template>
 
@@ -53,4 +56,5 @@ const props = defineProps(["imageUrl"]);
   margin: 5px 0;
   color: #666;
 }
+
 </style>
